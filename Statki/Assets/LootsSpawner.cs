@@ -5,13 +5,18 @@ using UnityEngine;
 public class LootsSpawner : MonoBehaviour {
 	public GameObject woodPrefab;
 	public GameObject singleWoodLootInstance;
+	public LootsDamageHandler damageHandler;
 	Vector3 position;
+	int amount;
 
 	void Start(){
 		SpawnLoot ();
 	}
 
 	void SpawnLoot(){
+		Debug.Log ("Wood: "+amount);
+		damageHandler = woodPrefab.GetComponent<LootsDamageHandler> ();
+		damageHandler.setGoodsAmount (amount);
 		singleWoodLootInstance = (GameObject)Instantiate(woodPrefab, position, Quaternion.identity);
 	}
 
@@ -20,8 +25,9 @@ public class LootsSpawner : MonoBehaviour {
 		
 	}
 
-	public void newLoot(Vector3 pos){
+	public void newLoot(Vector3 pos, int amount){
 		position = pos;
+		amount = amount;
 		Start ();
 	}
 }

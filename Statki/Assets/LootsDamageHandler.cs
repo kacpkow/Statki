@@ -6,9 +6,12 @@ public class LootsDamageHandler : MonoBehaviour {
 	PlayerSpawner playerInstance;
 
 	int active = 1;
+	int goodAmount;
 	void OnCollisionEnter2D(){
 		playerInstance = GameObject.Find("PlayerSpawnerSpot").GetComponent<PlayerSpawner>();
 		playerInstance.AddHealth ();
+		Debug.Log (goodAmount);
+		playerInstance.AddWood (goodAmount);
 		active--;
 	}
 
@@ -21,4 +24,9 @@ public class LootsDamageHandler : MonoBehaviour {
 	void Die(){
 		Destroy (gameObject);
 	}
+
+	public void setGoodsAmount(int amount){
+		goodAmount = amount;
+	}
+
 }

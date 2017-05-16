@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour {
 
 	public Vector3 bulletOffset = new Vector3(0, 0.5f, 0);
+	GameObject toSound;
 
 	public GameObject bulletPrefab;
 	int bulletLayer;
@@ -27,6 +28,8 @@ public class PlayerShooting : MonoBehaviour {
 			Vector3 offset = transform.rotation * bulletOffset;
 
 			GameObject bulletGO = (GameObject)Instantiate (bulletPrefab, transform.position + offset, transform.rotation);
+			AudioSource M4A1 = GetComponent<AudioSource>();
+			M4A1.Play ();
 			bulletGO.layer = bulletLayer;
 		}
 		
