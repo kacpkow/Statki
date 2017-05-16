@@ -7,6 +7,7 @@ public class EnemySpawner : MonoBehaviour {
 	public GameObject enemyPrefab;
 	public List<GameObject> enemyInstance;
 	public GameObject singleEnemyInstance;
+	PlayerSpawner playerInstance;
 
 	public int numLives = 1;
 	public int gold;
@@ -16,6 +17,8 @@ public class EnemySpawner : MonoBehaviour {
 	System.Random rnd;
 
 	float respawnTimer;
+	bool spawned = false;
+	bool added = false;
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +27,7 @@ public class EnemySpawner : MonoBehaviour {
 		for (int i = 0; i < enemyNumber; i++) {
 			SpawnEnemy(rnd);
 		}
+		spawned = true;
 	}
 
 	void SpawnEnemy(System.Random rnd) {
@@ -42,20 +46,29 @@ public class EnemySpawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if(enemyInstance.Count < 4) {
+		if(enemyInstance.Count < 4 && spawned ) {
+			//dodanie punktów za zniszczenie wroga
+			playerInstance = GameObject.Find("PlayerSpawnerSpot").GetComponent<PlayerSpawner>();
+
 			respawnTimer -= Time.deltaTime;
+			if (!added) {
+				playerInstance.AddExp (100);
+				added = true;
+			}
+
 
 			if(respawnTimer <= 0) {
 				SpawnEnemy(rnd);
+				added = false;
 			}
 		}
 	
 	}
+	/*
 	void OnGUI() {
 			GUI.Label( new Rect(400, 0, 500, 50), "Enemies: ");
-
 	}
-
+*/
 	double returnCoordinate(System.Random rnd){
 		bool minusValue;
 		if (rnd.NextDouble() > 0.5) {

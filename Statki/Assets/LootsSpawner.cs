@@ -4,20 +4,33 @@ using UnityEngine;
 
 public class LootsSpawner : MonoBehaviour {
 	public GameObject woodPrefab;
+	public GameObject goldPrefab;
 	public GameObject singleWoodLootInstance;
-	public LootsDamageHandler damageHandler;
+	public GameObject singleGoldLootInstance;
+	public LootsWoodDamageHandler damageHandlerWoodPrefab;
+	public LootsGoldDamageHandler damageHandlerGoldPrefab;
+	public LootHealth lootWoodHealth;
+	public LootHealth lootGoldHealth;
 	Vector3 position;
-	int amount;
+	int wood;
+	int gold;
 
 	void Start(){
 		SpawnLoot ();
 	}
 
 	void SpawnLoot(){
-		Debug.Log ("Wood: "+amount);
-		damageHandler = woodPrefab.GetComponent<LootsDamageHandler> ();
-		damageHandler.setGoodsAmount (amount);
+		//spawning wood loot
 		singleWoodLootInstance = (GameObject)Instantiate(woodPrefab, position, Quaternion.identity);
+		damageHandlerWoodPrefab = woodPrefab.GetComponent<LootsWoodDamageHandler> ();
+		lootWoodHealth = woodPrefab.GetComponent<LootHealth> ();
+		lootWoodHealth.UpdateAmount (wood);
+
+		//spawning gold loot
+		singleGoldLootInstance = (GameObject)Instantiate(goldPrefab, position, Quaternion.identity);
+		damageHandlerGoldPrefab = goldPrefab.GetComponent<LootsGoldDamageHandler> ();
+		lootGoldHealth = goldPrefab.GetComponent<LootHealth> ();
+		lootGoldHealth.UpdateAmount (gold);
 	}
 
 	// Update is called once per frame
@@ -25,9 +38,10 @@ public class LootsSpawner : MonoBehaviour {
 		
 	}
 
-	public void newLoot(Vector3 pos, int amount){
+	public void newLoot(Vector3 pos, int woodAmount, int goldAmount){
 		position = pos;
-		amount = amount;
+		wood = woodAmount;
+		gold = goldAmount;
 		Start ();
 	}
 }

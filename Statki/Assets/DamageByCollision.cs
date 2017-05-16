@@ -47,12 +47,9 @@ public class DamageByCollision : MonoBehaviour {
 			enemyInstance = GameObject.Find("EnemySpawnerSpot").GetComponent<EnemySpawner>();
 			enemyInstance.enemyInstance.Remove (gameObject);
 			playerInstance = GameObject.Find("PlayerSpawnerSpot").GetComponent<PlayerSpawner>();
-			playerInstance.gold += enemyInstance.gold;
-			playerInstance.wood += enemyInstance.wood;
 			Vector3 pos = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
 			lootsSpawner = GameObject.Find ("LootsSpawner").GetComponent<LootsSpawner>();
-			lootsSpawner.newLoot(pos, enemyInstance.gold);
-
+			lootsSpawner.newLoot(pos, enemyInstance.wood, enemyInstance.gold);
 		}
 	
 		Destroy (gameObject);
