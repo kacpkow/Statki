@@ -45,7 +45,7 @@ public class EnemySpawner : MonoBehaviour {
 
 		Vector3 randomPosition = new Vector3((float)returnCoordinate(rnd)*5.0f, (float)returnCoordinate(rnd)*2.5f, 0.0f);
 		singleEnemyInstance = (GameObject)Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
-		singleEnemyInstance.GetComponent<TriggerWalk>().enemy = playerSpawner.playerInstance.transform;
+		//singleEnemyInstance.GetComponent<TriggerWalk>().enemy = playerSpawner.playerInstance.transform;
 		enemyInstance.Add (singleEnemyInstance);
 	}
 
