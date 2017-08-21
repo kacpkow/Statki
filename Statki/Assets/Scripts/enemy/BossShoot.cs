@@ -37,13 +37,11 @@ public class BossShoot : MonoBehaviour {
 
                 offset.y += 20;
                 offset.x += 20;
-                GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, transform.position + offset, transform.rotation);
-                offset.y += 20; 
-                GameObject bulletGO2 = (GameObject)Instantiate(bulletPrefab, transform.position + offset, transform.rotation);
+                GetComponent<Shoot>().ShootBullet(bulletOffset, 0, transform.position, transform.rotation, bulletPrefab);
+                offset.y += 20;
+                GetComponent<Shoot>().ShootBullet(bulletOffset, 0, transform.position, transform.rotation, bulletPrefab);
                 AudioSource M4A1 = GetComponent<AudioSource>();
                 M4A1.Play();
-                bulletGO.layer = bulletLayer;
-                bulletGO2.layer = bulletLayer;
             }
 
         }
