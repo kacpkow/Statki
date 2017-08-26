@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\PlayerShooting.cs" />
      <Compile Include="Assets\Scripts\PlayerSpawner.cs" />
      <Compile Include="Assets\Scripts\SelfDestructBullet.cs" />
+     <Compile Include="Assets\Scripts\Shoot.cs" />
      <Compile Include="Assets\Scripts\enemy\BossShoot.cs" />
      <Compile Include="Assets\Scripts\enemy\CatchEnemy.cs" />
      <Compile Include="Assets\Scripts\enemy\CatchObstance.cs" />

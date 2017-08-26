@@ -28,13 +28,17 @@ public class DamageHandler : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter2D() {
-		health--;
+	void OnTriggerEnter2D(Collider2D col) {
+        if (col.gameObject.tag != "Sensor")
+        {
+            health--;
 
-		if(invulnPeriod > 0) {
-			invulnTimer = invulnPeriod;
-			gameObject.layer = 10;
-		}
+            if (invulnPeriod > 0)
+            {
+                invulnTimer = invulnPeriod;
+                gameObject.layer = 10;
+            }
+        }
 	}
 
 	void Update() {

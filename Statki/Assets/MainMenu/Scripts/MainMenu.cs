@@ -34,9 +34,9 @@ public class MainMenu : MonoBehaviour {
             
 
             GUIStyle labelStyle = new GUIStyle("TextField");
-            labelStyle.fontSize = (int)(Screen.height * 0.04);
+            labelStyle.fontSize = (int)(Screen.height * 0.045);
 
-            GUI.Label(new Rect(Screen.width * .2f, Screen.height * .2f, Screen.width * .6f, Screen.height * .5f), file.ToString(), labelStyle);
+            GUI.Label(new Rect(Screen.width * .1f, Screen.height * .05f, Screen.width * .8f, Screen.height * .7f), file.ToString(), labelStyle);
 
             if (GUI.Button(new Rect(Screen.width * .375f, Screen.height * .8f, Screen.width * .25f, Screen.height * .12f), "Play", style))
             {
