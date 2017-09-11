@@ -79,8 +79,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\MainMenu\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\PlayerShip.cs" />
     <Compile Include="Assets\Scripts\BossButtonScript.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\CityCatchPlayer.cs" />
+    <Compile Include="Assets\Scripts\CityController.cs" />
+    <Compile Include="Assets\Scripts\CityPopUpController.cs" />
     <Compile Include="Assets\Scripts\DamageByCollision.cs" />
     <Compile Include="Assets\Scripts\DamageHandler.cs" />
     <Compile Include="Assets\Scripts\enemy\BossShoot.cs" />
@@ -102,6 +106,7 @@
     <Compile Include="Assets\Scripts\PlayerSpawner.cs" />
     <Compile Include="Assets\Scripts\SelfDestructBullet.cs" />
     <Compile Include="Assets\Scripts\Shoot.cs" />
+    <Compile Include="Assets\Scripts\WindController.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\CircleObject.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\GroupLayer.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\ImportBehaviour.cs" />

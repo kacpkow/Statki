@@ -4,32 +4,32 @@ using UnityEngine;
 
 public class DamageHandler : MonoBehaviour {
 
-	public int health = 1;
+    public int health = 1;
 
-	public float invulnPeriod = 0;
-	float invulnTimer = 0;
-	int correctLayer;
+    public float invulnPeriod = 0;
+    float invulnTimer = 0;
+    int correctLayer;
 
-	SpriteRenderer spriteRend;
+    SpriteRenderer spriteRend;
 
-	void Start() {
-		correctLayer = gameObject.layer;
+    void Start() {
+        correctLayer = gameObject.layer;
 
-		// NOTE!  This only get the renderer on the parent object.
-		// In other words, it doesn't work for children. I.E. "enemy01"
-		spriteRend = GetComponent<SpriteRenderer>();
+        // NOTE!  This only get the renderer on the parent object.
+        // In other words, it doesn't work for children. I.E. "enemy01"
+        spriteRend = GetComponent<SpriteRenderer>();
 
-		if(spriteRend == null) {
-			spriteRend = transform.GetComponentInChildren<SpriteRenderer>();
+        if (spriteRend == null) {
+            spriteRend = transform.GetComponentInChildren<SpriteRenderer>();
 
-			if(spriteRend==null) {
-				Debug.LogError("Object '"+gameObject.name+"' has no sprite renderer.");
-			}
-		}
-	}
+            if (spriteRend == null) {
+                Debug.LogError("Object '" + gameObject.name + "' has no sprite renderer.");
+            }
+        }
+    }
 
-	void OnTriggerEnter2D(Collider2D col) {
-        if (col.gameObject.tag != "Sensor")
+    void OnTriggerEnter2D(Collider2D col) {
+        if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "Player")
         {
             health--;
 

@@ -3,29 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-	public float maxSpeed = 50;
-	public float rotSpeed = 180f;
+    float shipSpeed = 0.0f;
+    float maxSpeed = 10;
+    float rotSpeed = 180f;
 	float shipBoundaryRadius = 20f;
-	// Use this for initialization
-	void Start () {
+    float shipDirection;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//rotation update
-		Quaternion rot = transform.rotation;
-		float z = rot.eulerAngles.z;
-		z -= Input.GetAxis ("Horizontal") * rotSpeed * Time.deltaTime;
-		rot = Quaternion.Euler (0,0,z);
-		transform.rotation = rot;
+        //rotation update
+        Quaternion rot;
+        shipDirection = transform.rotation.eulerAngles.z;
 
-		//move update
-		Vector3 pos = transform.position;
-		Vector3 velocity = new Vector3(0,Input.GetAxis("Vertical") * maxSpeed * Time.deltaTime,0);
-		pos += rot * velocity;
+        shipDirection -= Input.GetAxis ("Horizontal") * rotSpeed * Time.deltaTime;
+		rot = Quaternion.Euler (0,0, shipDirection);
 
-		if (pos.y + shipBoundaryRadius > Camera.main.orthographicSize) {
+        transform.rotation = rot;
+
+		
+
+        var windDirectionObject = GameObject.Find("windDirection");
+        var windControllerScript = (WindController)windDirectionObject.GetComponent("WindController");
+        float windDirection = windControllerScript.transform.rotation.z;
+        float windForce = windControllerScript.getForce();
+
+        float wypadkowaStatku = (1 - Mathf.Abs(Mathf.Abs(windDirection) - Mathf.Abs(transform.rotation.z))) * windForce + shipSpeed;
+
+        //move update
+        Vector3 pos = transform.position;
+        changeSpeed(Input.GetAxis("Vertical"));
+        Vector3 velocity = new Vector3(0, maxSpeed * wypadkowaStatku * shipSpeed * Time.deltaTime, 0);
+        pos += rot * velocity;
+
+        if (pos.y + shipBoundaryRadius > Camera.main.orthographicSize) {
 			pos.y = Camera.main.orthographicSize - shipBoundaryRadius;
 		}
 		if (pos.y - shipBoundaryRadius < -Camera.main.orthographicSize) {
@@ -45,4 +60,11 @@ public class PlayerMovement : MonoBehaviour {
 		transform.position = pos;
 
 	}
+
+    private void changeSpeed(float speedChange)
+    {
+        shipSpeed += speedChange * 0.1f;
+        if (shipSpeed > 1) shipSpeed = 1;
+        else if (shipSpeed < 0) shipSpeed = 0;
+    }
 }
