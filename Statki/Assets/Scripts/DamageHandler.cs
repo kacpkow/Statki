@@ -28,17 +28,21 @@ public class DamageHandler : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter2D(Collider2D col) {
-        if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "Player")
-        {
-            health--;
+	void OnTriggerEnter2D(Collider2D col) {
+		if (col is PolygonCollider2D) {
+			health--;
+			if(invulnPeriod > 0) {
+				invulnTimer = invulnPeriod;
+				gameObject.layer = 14;
+			}
+		} else {
+			
+		}
 
-            if (invulnPeriod > 0)
-            {
-                invulnTimer = invulnPeriod;
-                gameObject.layer = 10;
-            }
-        }
+	}
+
+	void OnCollisionEnter2D(){
+		health--;
 	}
 
 	void Update() {

@@ -32,13 +32,13 @@ public class PlayerMovement : MonoBehaviour {
         float windDirection = windControllerScript.transform.rotation.z;
         float windForce = windControllerScript.getForce();
 
-        float wypadkowaStatku = (1 - Mathf.Abs(Mathf.Abs(windDirection) - Mathf.Abs(transform.rotation.z))) * windForce + shipSpeed;
+		float wypadkowaStatku = (1 +  Mathf.Abs(Mathf.Abs(windDirection) - Mathf.Abs(transform.rotation.z))) * windForce + shipSpeed;
 
         //move update
         Vector3 pos = transform.position;
         changeSpeed(Input.GetAxis("Vertical"));
         Vector3 velocity = new Vector3(0, maxSpeed * wypadkowaStatku * shipSpeed * Time.deltaTime, 0);
-        pos += rot * velocity;
+        pos -= rot * velocity;
 
         if (pos.y + shipBoundaryRadius > Camera.main.orthographicSize) {
 			pos.y = Camera.main.orthographicSize - shipBoundaryRadius;

@@ -43,7 +43,8 @@ public class EnemySpawner : MonoBehaviour {
 		//dodać pozycję miasta
 
 
-		Vector3 randomPosition = new Vector3((float)returnCoordinate(rnd)*5.0f, (float)returnCoordinate(rnd)*2.5f, 0.0f);
+		//Vector3 randomPosition = new Vector3((float)returnCoordinate(rnd)*5.0f, (float)returnCoordinate(rnd)*2.5f, 0.0f);
+		Vector3 randomPosition = new Vector3((float)(-90.0f + returnCoordinate(rnd)*5.0f), (float)(-20.0f + returnCoordinate(rnd)*2.5f), 0.0f);
 		singleEnemyInstance = (GameObject)Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
 		//singleEnemyInstance.GetComponent<TriggerWalk>().enemy = playerSpawner.playerInstance.transform;
 		enemyInstance.Add (singleEnemyInstance);
@@ -52,13 +53,15 @@ public class EnemySpawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if(enemyInstance.Count < 4 && spawned ) {
+		if(enemyInstance.Count < enemyNumber && spawned ) {
 			//dodanie punktów za zniszczenie wroga
 			playerInstance = GameObject.Find("PlayerSpawnerSpot").GetComponent<PlayerSpawner>();
 
 			respawnTimer -= Time.deltaTime;
 			if (!added) {
-				playerInstance.AddExp (100);
+				if (playerInstance.numLives > 0) {
+					playerInstance.AddExp (100);
+				}
 				added = true;
 			}
 

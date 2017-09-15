@@ -13,15 +13,22 @@ public class DamageByCollision : MonoBehaviour {
 	public int health = 1;
 
 	void OnCollisionEnter2D(){
-		Debug.Log ("Collision");
 
 		health--;
 	}
+		                             
 
-	void OnTriggerEnter2D(){
-		Debug.Log ("Trigger");
-		health--;
+	void OnTriggerEnter2D(Collider2D col){
+		if (col is PolygonCollider2D) {
+			
+		} else if (col is CircleCollider2D) {
+
+		} else {
+			health--;
+		}
+
 	}
+		
 
 	void Update(){
 		if (health <= 0) {
@@ -43,7 +50,7 @@ public class DamageByCollision : MonoBehaviour {
 		*/
 
 		//zestrzelony wrogi statek
-		if (gameObject.name == "enemy(Clone)") {
+		if (gameObject.name == "enemyShip(Clone)") {
 			enemyInstance = GameObject.Find("EnemySpawnerSpot").GetComponent<EnemySpawner>();
 			enemyInstance.enemyInstance.Remove (gameObject);
 			playerInstance = GameObject.Find("PlayerSpawnerSpot").GetComponent<PlayerSpawner>();

@@ -5,9 +5,10 @@ using UnityEngine;
 public class LootsWoodDamageHandler : MonoBehaviour {
 	PlayerSpawner playerInstance;
 	public LootHealth lootHealth;
+	public float activeTime = 5.0f;
 
 	int active = 1;
-	static int goodAmount;
+	static int goodAmount = 1;
 	void OnCollisionEnter2D(){
 		Debug.Log ("Assigned in collision "+goodAmount);
 		playerInstance = GameObject.Find("PlayerSpawnerSpot").GetComponent<PlayerSpawner>();
@@ -18,7 +19,8 @@ public class LootsWoodDamageHandler : MonoBehaviour {
 	}
 
 	void Update(){
-		if (active <= 0) {
+		activeTime -= Time.deltaTime;
+		if (active <= 0 || activeTime <= 0.0f) {
 			Die();
 		}
 	}

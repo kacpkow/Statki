@@ -9,6 +9,8 @@ public class LootsGoldDamageHandler : MonoBehaviour {
 
 	int active = 1;
 	static int goodAmount;
+	public float activeTime = 5.0f;
+
 	void OnCollisionEnter2D(){
 		Debug.Log ("Assigned in collision "+goodAmount);
 		playerInstance = GameObject.Find("PlayerSpawnerSpot").GetComponent<PlayerSpawner>();
@@ -19,7 +21,8 @@ public class LootsGoldDamageHandler : MonoBehaviour {
 	}
 
 	void Update(){
-		if (active <= 0) {
+		activeTime -= Time.deltaTime;
+		if (active <= 0 || activeTime <= 0.0f) {
 			Die();
 		}
 	}

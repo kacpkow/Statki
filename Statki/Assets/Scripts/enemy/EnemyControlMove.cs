@@ -54,42 +54,43 @@ public class EnemyControlMove : MonoBehaviour {
 
     void atack()
     {
-        angle = calculateAngle(enemyParam.enemy.position);
-        enemyParam.moveUp = true;
+		if (enemyParam.enemy != null) {
+			angle = calculateAngle(enemyParam.enemy.position);
+			enemyParam.moveUp = true;
 
-        int angleOfApproach = 270;
-        int leftRange = angleOfApproach - angleOfDeadSpace / 2;
-        int rightRange = angleOfApproach + angleOfDeadSpace / 2;
+			int angleOfApproach = 270;
+			int leftRange = angleOfApproach - angleOfDeadSpace / 2;
+			int rightRange = angleOfApproach + angleOfDeadSpace / 2;
 
-        if (angle < leftRange && angle > 90)
-            goLeft();
-        else if ((angle > rightRange && angle < 360) || (angle > 0 && angle < 90))
-            goRight();
-        else
-        {
-            enemyParam.fire = true;
-            noTwist();
-        }
+			if (angle < leftRange && angle > 90)
+				goLeft();
+			else if ((angle > rightRange && angle < 360) || (angle > 0 && angle < 90))
+				goRight();
+			else
+			{
+				enemyParam.fire = true;
+				noTwist();
+			}
 
+		}
     }
 
     void swimToTarget()
     {
-        angle = calculateAngle(enemyParam.enemy.position);
-        enemyParam.moveUp = true;
+		if (enemyParam.enemy != null) {
+			angle = calculateAngle(enemyParam.enemy.position);
+			enemyParam.moveUp = true;
 
-        int leftRange = 360 - angleOfDeadSpace / 2;
-        int rightRange = 0 + angleOfDeadSpace / 2;
+			int leftRange = 360 - angleOfDeadSpace / 2;
+			int rightRange = 0 + angleOfDeadSpace / 2;
 
-        if (angle > rightRange && angle <= 180)
-            goRight();
-        else if (angle > 180 && angle < leftRange)
-            goLeft();
-        else if ((angle >= leftRange || angle <= rightRange))
-            noTwist();
-        
-
-        
+			if (angle > rightRange && angle <= 180)
+				goRight();
+			else if (angle > 180 && angle < leftRange)
+				goLeft();
+			else if ((angle >= leftRange || angle <= rightRange))
+				noTwist();
+		}
 
     }
 

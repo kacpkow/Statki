@@ -16,22 +16,9 @@ public class LootsSpawner : MonoBehaviour {
 	int gold;
 
 	void Start(){
-		SpawnLoot ();
+		
 	}
-
-	void SpawnLoot(){
-		//spawning wood loot
-		singleWoodLootInstance = (GameObject)Instantiate(woodPrefab, position, Quaternion.identity);
-		damageHandlerWoodPrefab = woodPrefab.GetComponent<LootsWoodDamageHandler> ();
-		lootWoodHealth = woodPrefab.GetComponent<LootHealth> ();
-		lootWoodHealth.UpdateAmount (wood);
-
-		//spawning gold loot
-		singleGoldLootInstance = (GameObject)Instantiate(goldPrefab, position, Quaternion.identity);
-		damageHandlerGoldPrefab = goldPrefab.GetComponent<LootsGoldDamageHandler> ();
-		lootGoldHealth = goldPrefab.GetComponent<LootHealth> ();
-		lootGoldHealth.UpdateAmount (gold);
-	}
+		
 
 	// Update is called once per frame
 	void Update () {
@@ -42,6 +29,17 @@ public class LootsSpawner : MonoBehaviour {
 		position = pos;
 		wood = woodAmount;
 		gold = goldAmount;
-		Start ();
+		//spawning gold loot
+		singleGoldLootInstance = (GameObject)Instantiate(goldPrefab, position, Quaternion.identity);
+		damageHandlerGoldPrefab = goldPrefab.GetComponent<LootsGoldDamageHandler> ();
+		lootGoldHealth = goldPrefab.GetComponent<LootHealth> ();
+		lootGoldHealth.UpdateAmount (gold);
+		//spawning wood loot
+		position.x = position.x + 2.0f;
+		position.y = position.y + 1.0f;
+		singleWoodLootInstance = (GameObject)Instantiate(woodPrefab, position, Quaternion.identity);
+		damageHandlerWoodPrefab = woodPrefab.GetComponent<LootsWoodDamageHandler> ();
+		lootWoodHealth = woodPrefab.GetComponent<LootHealth> ();
+		lootWoodHealth.UpdateAmount (wood);
 	}
 }

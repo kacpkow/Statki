@@ -10,6 +10,7 @@ public class CatchEnemy : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+		gameObject.layer = 15;
         enemyParam = transform.parent.gameObject.GetComponent<EnemyParam>();
     }
 	

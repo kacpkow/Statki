@@ -23,7 +23,7 @@ public class CityPopUpController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        sellAllButton.onClick.AddListener(sellAllButtonOnClick);
+         sellAllButton.onClick.AddListener(sellAllButtonOnClick);
         repairShipButton.onClick.AddListener(repairShipButtonOnClick);
         upgradeShipButton.onClick.AddListener(upgradeShipButtonOnClick);
         upgradeCannonsButton.onClick.AddListener(upgradeCannonsButtonOnClick);
@@ -67,27 +67,27 @@ public class CityPopUpController : MonoBehaviour {
 
     private void calculateStaffPrice()
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
     private void calculateRepairShipCost()
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
     private void calculateUpgradeShipCost()
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
     private void calculateUpgradeCannonsCost()
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
     private void calculateUpgradeSailsCost()
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
   

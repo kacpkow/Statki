@@ -8,6 +8,6 @@ public class Shoot : MonoBehaviour
     {
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, position + rotation * bulletOffset, rotation);
         bulletGO.GetComponent<MoveForwardBullet>().transform.Rotate(0, 0, direction);
-        bulletGO.layer = gameObject.layer;
+        //bulletGO.layer = gameObject.layer;
     }
 }
