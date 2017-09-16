@@ -12,9 +12,13 @@ public class DamageByCollision : MonoBehaviour {
 
 	public int health = 1;
 
-	void OnCollisionEnter2D(){
+	void OnCollisionEnter2D(Collision2D col){
+		if (col.gameObject.tag == "Land") {
 
-		health--;
+			if (gameObject.tag != "Enemy") {
+				health--;
+			}
+		}
 	}
 		                             
 

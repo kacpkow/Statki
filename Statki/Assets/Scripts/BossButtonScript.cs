@@ -14,6 +14,7 @@ public class BossButtonScript : MonoBehaviour {
 	void Start () {
 		GameObject.Find("FightBossButton").GetComponentInChildren<UnityEngine.UI.Text>().text = "Fight with boss";
 		button = gameObject.GetComponent<UnityEngine.UI.Button>();
+		button.interactable = false;
 		CanvasRenderer[] canvasRenderers = gameObject.GetComponentsInChildren<CanvasRenderer>();
 		foreach (CanvasRenderer c in canvasRenderers) {
 			c.SetAlpha (0);

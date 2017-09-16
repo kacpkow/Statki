@@ -30,6 +30,7 @@ public class DamageHandler : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col is PolygonCollider2D) {
+			Debug.Log ("shoot");
 			health--;
 			if(invulnPeriod > 0) {
 				invulnTimer = invulnPeriod;
