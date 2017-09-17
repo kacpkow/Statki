@@ -106,7 +106,7 @@ public class EnemyControlMove : MonoBehaviour {
 
         if (angleOfObstance > 0 && angleOfObstance < 180)
         {
-            if (angle <= 360 && angle > 180)
+            if (angle <= 330 && angle > 180)
                 enemyParam.obstance = null;
 
             angleOfApproach = 90;
@@ -119,7 +119,7 @@ public class EnemyControlMove : MonoBehaviour {
             else noTwist();
         }
         else {
-            if (angle >= 0 && angle < 180)
+            if (angle >= 30 && angle < 180)
                 enemyParam.obstance = null;
 
             angleOfApproach = 270;
