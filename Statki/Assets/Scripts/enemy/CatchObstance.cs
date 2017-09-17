@@ -21,6 +21,12 @@ public class CatchObstance : MonoBehaviour {
     {
         if (col.gameObject.tag == "Land")
         {
+            if(enemyParam.patrol)
+            {
+                GameObject mygameobject = new GameObject();
+                randPosition(mygameobject);
+                enemyParam.enemy = mygameobject.transform;
+            }
 
             enemyParam.numberOfObstance++;
             enemyParam.obstance = col.transform;
@@ -38,5 +44,15 @@ public class CatchObstance : MonoBehaviour {
                 enemyParam.numberOfObstance = 0;
             }
         }
+    }
+
+    private void randPosition(GameObject objectt)
+    {
+
+        Vector3 vec = new Vector3();
+        vec.x = UnityEngine.Random.Range(-100, 150);
+        vec.y = UnityEngine.Random.Range(30, 50);
+        objectt.transform.position = vec;
+
     }
 }

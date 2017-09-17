@@ -23,7 +23,7 @@ public class EnemyControlMove : MonoBehaviour {
         {
             if (enemyParam.obstance == null)
             {
-                if (enemyParam.activeAttack)
+                if (enemyParam.activeAttack && !enemyParam.patrol)
                 {
                     
                     atack();

@@ -19,6 +19,7 @@ public class EnemyParam : MonoBehaviour {
     public bool moveLeft;
     public bool moveRight;
     public bool fire;
+    public bool patrol;
 
     // Use this for initialization
     void Start () {
