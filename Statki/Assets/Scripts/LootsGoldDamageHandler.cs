@@ -14,7 +14,6 @@ public class LootsGoldDamageHandler : MonoBehaviour {
 	void OnCollisionEnter2D(){
 		Debug.Log ("Assigned in collision "+goodAmount);
 		playerInstance = GameObject.Find("PlayerSpawnerSpot").GetComponent<PlayerSpawner>();
-		playerInstance.AddHealth ();
 		lootHealth = gameObject.GetComponent<LootHealth> ();
 		playerInstance.AddGold(lootHealth.amount);
 		active--;

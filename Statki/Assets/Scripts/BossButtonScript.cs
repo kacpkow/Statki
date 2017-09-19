@@ -24,7 +24,7 @@ public class BossButtonScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (playerSpawner.level >= 20 && playerSpawner.health > 0) {
+		if (playerSpawner.level >= 2 && playerSpawner.health > 0) {
 			readyToFight = true;
 		} else
 			readyToFight = false;

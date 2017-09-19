@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SelfDestructBullet : MonoBehaviour {
 
-	public float timer = 2.2f;
+	private float timer = 1f;
 
 	void Update () {
 		timer -= Time.deltaTime;

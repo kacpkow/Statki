@@ -22,6 +22,10 @@ public class PlayerSpawner : MonoBehaviour {
 	public int wood = 0;
 	public int expPoints = 0;
 	public int health = 0;
+    public int maxHealth = 7;
+    public int shipLvl = 1;
+    public int canonsLvl = 1;
+    public int sailsLvl = 1;
 	int lastLostExpPoints = 0;
 	public int level = 1;
 	public int pointsFactor = 100;
@@ -105,7 +109,9 @@ public class PlayerSpawner : MonoBehaviour {
 				AddLevelPoints ();
 				expPoints = 0;
 				lastLostExpPoints = 0;
-		}
+            var enemySpawner = GameObject.Find("EnemySpawnerSpot").GetComponent<EnemySpawner>();
+            enemySpawner.numLives++;
+        }
 
 		//rank checking
 		switch (level) {
@@ -170,7 +176,12 @@ public class PlayerSpawner : MonoBehaviour {
 
 		public void AddHealth(){
 			if (playerInstance != null) {
+            
 				playerInstance.GetComponent<DamageByCollision> ().IncrementHealth();
+                if (health > maxHealth)
+                {
+                    health = maxHealth;
+                }
 			}
 		}
 

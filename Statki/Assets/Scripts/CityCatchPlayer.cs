@@ -13,7 +13,7 @@ public class CityCatchPlayer : MonoBehaviour {
         var foo = (CityPopUpController)popUp.GetComponent("CityPopUpController");
         popUpPosition = foo.transform.position;
         Vector3 pos = foo.transform.position;
-        Vector3 velocity = new Vector3(200, 0, 0);
+        Vector3 velocity = new Vector3(1000, 0, 0);
         pos += foo.transform.rotation * velocity;
         foo.transform.position = pos;
     }
@@ -44,12 +44,12 @@ public class CityCatchPlayer : MonoBehaviour {
         if (col.gameObject.tag == "Player")
         {
             var popUp = GameObject.Find("PopUp");
-            var foo = (CityPopUpController)popUp.GetComponent("CityPopUpController");
+            var cityPopUpController = (CityPopUpController)popUp.GetComponent("CityPopUpController");
 
-            Vector3 pos = foo.transform.position;
-            Vector3 velocity = new Vector3(200, 0, 0);
-            pos += foo.transform.rotation * velocity;
-            foo.transform.position = pos;
+            Vector3 pos = cityPopUpController.transform.position;
+            Vector3 velocity = new Vector3(1000, 0, 0);
+            pos += cityPopUpController.transform.rotation * velocity;
+            cityPopUpController.transform.position = pos;
         }
     }
 }

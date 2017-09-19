@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DamageByCollision : MonoBehaviour {
-	List<GameObject> listOfAllObjects;
 	PlayerSpawner playerInstance;
 	LootsSpawner lootsSpawner;
 	EnemySpawner enemyInstance;
 	
-	public float dyingSpeed = 2f;
+	//public float dyingSpeed = 2f;
 
 	public int health = 1;
 
@@ -21,7 +20,6 @@ public class DamageByCollision : MonoBehaviour {
 		}
 	}
 		                             
-
 	void OnTriggerEnter2D(Collider2D col){
 		if (col is PolygonCollider2D) {
 			
@@ -33,7 +31,6 @@ public class DamageByCollision : MonoBehaviour {
 
 	}
 		
-
 	void Update(){
 		if (health <= 0) {
 			Die();

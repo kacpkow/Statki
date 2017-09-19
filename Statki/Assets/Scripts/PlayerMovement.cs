@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
     float shipSpeed = 0.0f;
-    float maxSpeed = 10;
+    public float maxSpeed = 8;
     float rotSpeed = 180f;
 	float shipBoundaryRadius = 20f;
     float shipDirection;
 
     // Use this for initialization
     void Start () {
-		
-	}
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
+        var playerInstance = GameObject.Find("PlayerSpawnerSpot").GetComponent<PlayerSpawner>();
         //rotation update
         Quaternion rot;
         shipDirection = transform.rotation.eulerAngles.z;

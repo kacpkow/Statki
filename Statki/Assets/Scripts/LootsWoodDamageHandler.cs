@@ -12,7 +12,7 @@ public class LootsWoodDamageHandler : MonoBehaviour {
 	void OnCollisionEnter2D(){
 		Debug.Log ("Assigned in collision "+goodAmount);
 		playerInstance = GameObject.Find("PlayerSpawnerSpot").GetComponent<PlayerSpawner>();
-		playerInstance.AddHealth ();
+		//playerInstance.AddHealth();
 		lootHealth = gameObject.GetComponent<LootHealth> ();
 		playerInstance.AddWood(lootHealth.amount);
 		active--;
