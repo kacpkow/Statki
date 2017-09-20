@@ -365,9 +365,9 @@ MonoBehaviour:
     height: 336
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 0a060000
+    m_SelectedIDs: 54050000
     m_LastClickedID: 0
-    m_ExpandedIDs: e4fbffff00000000
+    m_ExpandedIDs: 60f8ffff0af9ffff16faffff1cfaffffe4fbffff000000002a3b00004e520000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -527,19 +527,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scripts/enemy
+    - Assets/MainMenu/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/enemy
+  - Assets/MainMenu/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\kacper\Desktop\Statki-master (4)\Statki-master\Statki
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 111}
-    m_SelectedIDs: ca340000
-    m_LastClickedID: 13514
-    m_ExpandedIDs: 000000004a2500008e2600004a2d000000ca9a3bffffff7f
+    m_SelectedIDs: 1a2b0000
+    m_LastClickedID: 11034
+    m_ExpandedIDs: 000000004a2500008e260000ea2a00004a2d000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -674,7 +674,7 @@ MonoBehaviour:
     y: 92
     width: 396
     height: 614
-  m_ScrollPosition: {x: 0, y: 0}
+  m_ScrollPosition: {x: 0, y: 221.55373}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: 160
