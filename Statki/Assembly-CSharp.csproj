@@ -49,6 +49,7 @@
      <Compile Include="Assets\MainMenu\Scripts\MainMenu.cs" />
      <Compile Include="Assets\PlayerShip.cs" />
      <Compile Include="Assets\Scripts\BossButtonScript.cs" />
+     <Compile Include="Assets\Scripts\BossScript.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\CityCatchPlayer.cs" />
      <Compile Include="Assets\Scripts\CityController.cs" />

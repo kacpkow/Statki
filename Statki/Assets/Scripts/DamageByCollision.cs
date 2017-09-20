@@ -17,7 +17,16 @@ public class DamageByCollision : MonoBehaviour {
 			if (gameObject.tag != "Enemy") {
 				health--;
 			}
+		} else if (col.gameObject.layer == 9) {
+			if (gameObject.layer == 9) {
+				health--;
+			}
+		} else if (col.gameObject.layer == 8) {
+			if (gameObject.layer == 9) {
+				health--;
+			}
 		}
+
 	}
 		                             
 	void OnTriggerEnter2D(Collider2D col){
@@ -25,7 +34,11 @@ public class DamageByCollision : MonoBehaviour {
 			
 		} else if (col is CircleCollider2D) {
 
-		} else {
+		}else if (col is CapsuleCollider2D) {
+
+		}  
+		else {
+			Debug.Log (col.name);
 			health--;
 		}
 

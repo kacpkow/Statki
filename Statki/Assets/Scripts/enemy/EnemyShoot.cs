@@ -19,7 +19,7 @@ public class EnemyShoot : MonoBehaviour
     void Start()
     {
         enemyParam = transform.gameObject.GetComponent<EnemyParam>();
-        bulletLayer = gameObject.layer;
+        //bulletLayer = gameObject.layer;
     }
 
     // Update is called once per frame
@@ -39,7 +39,7 @@ public class EnemyShoot : MonoBehaviour
                 GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, transform.position + offset, transform.rotation);
                 AudioSource M4A1 = GetComponent<AudioSource>();
                 M4A1.Play();
-                bulletGO.layer = bulletLayer;
+                //bulletGO.layer = bulletLayer;
             }
 
         }
