@@ -19,7 +19,7 @@ public class CatchObstance : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Land")
+		if (col.gameObject.tag == "Land" || col.gameObject.tag == "Enemy")
         {
             if(enemyParam.patrol)
             {
@@ -35,7 +35,7 @@ public class CatchObstance : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Land")
+		if (col.gameObject.tag == "Land" || col.gameObject.tag == "Enemy")
         {
             enemyParam.numberOfObstance--;
             if (enemyParam.numberOfObstance <= 0)
