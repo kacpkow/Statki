@@ -41,23 +41,8 @@ public class PlayerMovement : MonoBehaviour {
         Vector3 velocity = new Vector3(0, maxSpeed * wypadkowaStatku * shipSpeed * Time.deltaTime, 0);
         pos -= rot * velocity;
 
-        if (pos.y + shipBoundaryRadius > Camera.main.orthographicSize) {
-			pos.y = Camera.main.orthographicSize - shipBoundaryRadius;
-		}
-		if (pos.y - shipBoundaryRadius < -Camera.main.orthographicSize) {
-			pos.y = -Camera.main.orthographicSize + shipBoundaryRadius;
-		}
-
 		float screenRatio = (float)Screen.width / (float)Screen.height;
 		float widthOrto = Camera.main.orthographicSize * screenRatio;
-
-		if (pos.x + shipBoundaryRadius > widthOrto) {
-			pos.x = widthOrto - shipBoundaryRadius;
-		}
-		if (pos.x - shipBoundaryRadius < -widthOrto) {
-			pos.x = -widthOrto + shipBoundaryRadius;
-		}
-
 		transform.position = pos;
 
 	}
