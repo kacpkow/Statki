@@ -61,7 +61,7 @@
      <Compile Include="Assets\Scripts\CityPopUpController.cs" />
      <Compile Include="Assets\Scripts\DamageByCollision.cs" />
      <Compile Include="Assets\Scripts\DamageHandler.cs" />
-     <Compile Include="Assets\Scripts\EndGameWindow.cs" />
+     <Compile Include="Assets\Scripts\EndGame.cs" />
      <Compile Include="Assets\Scripts\enemy\BossShoot.cs" />
      <Compile Include="Assets\Scripts\enemy\CatchEnemy.cs" />
      <Compile Include="Assets\Scripts\enemy\CatchObstance.cs" />

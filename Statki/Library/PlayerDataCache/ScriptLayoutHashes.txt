@@ -175,4 +175,4 @@ ad0843dc5844295eb779e75691b6f0e1 Assembly-CSharp.dll:.DamageByCollision
 329bcbf88b3c0197d230f5b9ceb88333 Assembly-CSharp.dll:Tiled2Unity.TmxObject
 70860dbf5263c420dce8ae41eb8bf631 Assembly-CSharp.dll:.EnemyParam
 73ecd958eeb4da19374a0eb26d04de2c Assembly-CSharp.dll:.CityPopUpController
-d26749a57a91056ce124abd2f62ccc5a Assembly-CSharp.dll:.EndGameWindow
+b7cce1633ccfcabca07c6f11f2dbd7c9 Assembly-CSharp.dll:.EndGame
