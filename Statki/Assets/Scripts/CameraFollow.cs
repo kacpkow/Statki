@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
 	private Transform myTarget;
+    private Transform wind;
 
     [SerializeField]
     private float xMax;
@@ -23,6 +24,7 @@ public class CameraFollow : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        myTarget = GameObject.Find("lodz(Clone)").transform;
         transform.position = new Vector3(Mathf.Clamp(myTarget.position.x, xMin, xMax), Mathf.Clamp(myTarget.position.y, yMin, yMax), transform.position.z);
 	}
 }
