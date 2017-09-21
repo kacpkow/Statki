@@ -20,7 +20,7 @@ public class WindController : MonoBehaviour
     {
         direction = 0;
         force = 1;
-        windForce.text = "Wind force: " + force;
+        //windForce.text = "Wind force: " + force;
     }
 
     public int getForce()
@@ -40,7 +40,7 @@ public class WindController : MonoBehaviour
         if (cooldownTimer < 0)
         {
             force = Random.Range(1, 3);
-            windForce.text = "Wind force: " + force;
+            //windForce.text = "Wind force: " + force;
             windChange = Random.Range(-45.0f, 45.0f);
             direction += windChange + transform.rotation.z;
             rot = Quaternion.Euler(0, 0, direction);

@@ -25,6 +25,6 @@ public class EndGame : MonoBehaviour {
 
     public void exitOnClick()
     {
-        Application.Quit();
+        Application.LoadLevel("mainMenu");
     }
 }
